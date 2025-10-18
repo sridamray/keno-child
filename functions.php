@@ -19,7 +19,7 @@ function keno_child_enqueue_assets()
         'keno-child-main-style',
         get_stylesheet_directory_uri() . '/assets/css/main.css',
         array('keno-parent-style'),
-        null // ← use null or '1.0.0' if filemtime causes issue
+        '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
     );
 
     // Load Child Theme JS
@@ -27,7 +27,7 @@ function keno_child_enqueue_assets()
         'keno-child-main-js',
         get_stylesheet_directory_uri() . '/assets/js/main.js',
         array('jquery'),
-        null,
+        '1.0.0',
         true
     );
 }
