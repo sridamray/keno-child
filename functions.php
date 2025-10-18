@@ -17,9 +17,9 @@ function keno_child_enqueue_assets()
     // Load Child Theme Main CSS
     wp_enqueue_style(
         'keno-child-main-style',
-        get_stylesheet_directory_uri() . '/assets/css/main.css',
+        'https://raw.githubusercontent.com/sridamray/keno-child/refs/heads/main/assets/css/main.css',
         array('keno-parent-style'),
-        '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
+        time()
     );
 
     // Load Child Theme JS
