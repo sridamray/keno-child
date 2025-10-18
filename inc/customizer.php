@@ -28,4 +28,23 @@ if (class_exists('Kirki')) {
             'default'     => '',
         ]
     );
+
+
+    new \Kirki\Section(
+        'keno_general_child_logo',
+        [
+            'title'       => esc_html__('Logo', 'keno-child'),
+            'panel'       => 'keno_child_customizer_panel',
+            'priority'    => 160,
+        ]
+    );
+
+    new \Kirki\Field\Image(
+        [
+            'settings'    => 'keno_child_logo',
+            'label'       => esc_html__('Image Control (URL)', 'keno-child'),
+            'section'     => 'keno_general_child_logo',
+            'default'     => '',
+        ]
+    );
 }
