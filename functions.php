@@ -18,17 +18,17 @@ function keno_child_enqueue_assets()
     wp_enqueue_style(
         'keno-child-main-style',
         get_stylesheet_directory_uri() . '/assets/css/main.css',
-        array('keno-parent-style'), // Make sure it loads after parent
-        filemtime(get_stylesheet_directory() . '/assets/css/main.css')
+        array('keno-parent-style'),
+        null // ← use null or '1.0.0' if filemtime causes issue
     );
 
     // Load Child Theme JS
     wp_enqueue_script(
         'keno-child-main-js',
         get_stylesheet_directory_uri() . '/assets/js/main.js',
-        array('jquery'), // dependencies
-        filemtime(get_stylesheet_directory() . '/assets/js/main.js'),
-        true // Load in footer
+        array('jquery'),
+        null,
+        true
     );
 }
 add_action('wp_enqueue_scripts', 'keno_child_enqueue_assets');
