@@ -1,5 +1,7 @@
    <?php
     $keno_child_logo = get_theme_mod('keno_child_logo');
+    $keno_general_btn_text = get_theme_mod('keno_general_btn_text', 'book appointment');
+    $keno_general_btn_url = get_theme_mod('keno_general_btn_url', '#');
 
     ?>
 
@@ -18,13 +20,13 @@
                    <!-- Main Menu Start -->
                    <div class="collapse navbar-collapse main-menu">
                        <div class="nav-menu-wrapper">
-                           <?php keno_header_menu(); ?>
+                           <?php keno_child_header_menu(); ?>
 
                        </div>
 
                        <!-- Header Btn Start -->
                        <div class="header-btn">
-                           <a href="book-appointment.html" class="btn-default btn-highlighted">book appointment</a>
+                           <a href="<?php echo esc_url($keno_general_btn_url); ?>" class="btn-default btn-highlighted"><?php echo esc_html($keno_general_btn_text); ?></a>
                        </div>
                        <!-- Header Btn End -->
                    </div>

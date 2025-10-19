@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #5a5044;
+  --primary-color: #f95b5b;
   --secondary-color: #f7f3ed;
   --accent-secondary-color: #636a55;
   --bg-color: #efe7da;
@@ -169,7 +169,7 @@ body {
 .btn-default {
   position: relative;
   display: inline-block;
-  background: var(--accent-color);
+  background: #f95b5b;
   border-radius: 10px;
   font-size: 16px;
   font-weight: 700;
@@ -181,6 +181,7 @@ body {
   overflow: hidden;
   transition: all 0.4s ease-in-out;
   z-index: 0;
+  border: 1px solid transparent;
 }
 
 .btn-default::before {
@@ -221,6 +222,7 @@ body {
 
 .btn-default.btn-highlighted:hover {
   color: var(--primary-color);
+  border: 1px solid (--primary-color);
 }
 
 .btn-default.btn-highlighted:hover::before {
@@ -343,10 +345,7 @@ body {
 }
 
 .bg-section {
-  width: 100%;
-  max-width: 1880px;
-  border-radius: 20px;
-  margin: 0 auto;
+  background: #f7f3ed;
 }
 
 .section-row {
@@ -467,16 +466,6 @@ body {
 /**** 	   03. Header css		 ****/
 /************************************/
 
-header.main-header {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  background: transparent;
-  z-index: 100;
-  border-radius: 0;
-}
-
 header.main-header .header-sticky {
   position: relative;
   top: 0;
@@ -485,6 +474,8 @@ header.main-header .header-sticky {
   border-bottom: 1px solid var(--dark-divider-color);
   margin: 0 auto;
   z-index: 100;
+  box-shadow: none;
+  background-color: transparent;
 }
 
 header.main-header .header-sticky.hide {
@@ -542,12 +533,13 @@ header.main-header .container-fluid {
   font-weight: 600;
   line-height: 1.2em;
   padding: 14px 20px !important;
-  color: var(--secondary-color);
+  color: #868686;
   text-transform: capitalize;
   transition: all 0.3s ease-in-out;
+  display: block;
 }
 
-.main-menu ul li.submenu > a:after {
+.main-menu ul li.menu-item-has-children > a:after {
   content: "\f107";
   font-family: "FontAwesome";
   font-weight: 900;
@@ -557,7 +549,7 @@ header.main-header .container-fluid {
 
 .main-menu ul li a:hover,
 .main-menu ul li a:focus {
-  color: var(--secondary-color);
+  color: #f95b5b;
 }
 
 .main-menu ul ul {
@@ -578,7 +570,7 @@ header.main-header .container-fluid {
   text-align: left;
 }
 
-.main-menu ul li.submenu:first-child ul {
+.main-menu ul li.menu-item-has-children:first-child ul {
   width: 235px;
 }
 
@@ -595,7 +587,7 @@ header.main-header .container-fluid {
   padding: 5px 0;
 }
 
-.main-menu ul li.submenu ul li.submenu > a:after {
+.main-menu ul li.menu-item-has-children ul li.menu-item-has-children > a:after {
   content: "\f105";
   float: right;
 }
@@ -2824,11 +2816,9 @@ header.main-header .container-fluid {
 
 .page-header {
   position: relative;
-  background: url("../images/page-header-bg.png") no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 245px 0 130px;
-  margin-top: 20px;
+  padding: 120px 0;
 }
 
 .page-header-box {
@@ -2839,7 +2829,7 @@ header.main-header .container-fluid {
   display: inline-block;
   font-size: 60px;
   font-weight: 600;
-  color: var(--secondary-color);
+  color: #4c5761;
   margin-bottom: 15px;
   cursor: none;
 }
@@ -2861,15 +2851,15 @@ header.main-header .container-fluid {
   font-weight: 400;
   line-height: 1.5em;
   text-transform: capitalize;
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .page-header-box ol li.breadcrumb-item a {
-  color: inherit;
+  color: #4c5761;
 }
 
 .page-header-box ol .breadcrumb-item + .breadcrumb-item::before {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .our-approach {

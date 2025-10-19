@@ -15,14 +15,50 @@ function keno_child_enqueue_assets()
     );
 
     // Load Child Theme Main CSS
+
+    wp_enqueue_style(
+        'keno-child-slicknav',
+        get_stylesheet_directory_uri() . '/assets/css/slicknav.min.css',
+        array(),
+        '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
+    );
+
     wp_enqueue_style(
         'keno-child-main-style',
         get_stylesheet_directory_uri() . '/assets/css/main.css',
         array(),
         '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
     );
+    wp_enqueue_style(
+        'keno-child-wp-fix',
+        get_stylesheet_directory_uri() . '/assets/css/wp-fix.css',
+        array(),
+        '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
+    );
 
     // Load Child Theme JS
+
+    wp_enqueue_script(
+        'slicknav',
+        get_stylesheet_directory_uri() . '/assets/js/jquery.slicknav.js',
+        array('jquery'),
+        '1.0.0',
+        true
+    );
+    wp_enqueue_script(
+        'gsap',
+        get_stylesheet_directory_uri() . '/assets/js/gsap.min.js',
+        array('jquery'),
+        '1.0.0',
+        true
+    );
+    wp_enqueue_script(
+        'split-text',
+        get_stylesheet_directory_uri() . '/assets/js/splittext.js',
+        array('jquery'),
+        '1.0.0',
+        true
+    );
     wp_enqueue_script(
         'keno-child-main-js',
         get_stylesheet_directory_uri() . '/assets/js/main.js',
@@ -53,3 +89,9 @@ foreach ($inc_parts as $incpart) {
         require_once $filepaths;
     }
 }
+
+register_nav_menus(
+    array(
+        'menu-child' => esc_html__('Main Menu', 'keno'),
+    )
+);
