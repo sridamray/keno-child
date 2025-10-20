@@ -38,3 +38,37 @@ function keno_child_header_menu()
         )
     );
 }
+
+function my_dynamic_css_for_btn_default()
+{
+
+    // 1. Make sure the main stylesheet is enqueued first
+    wp_enqueue_style('main-style-handle', get_stylesheet_directory_uri() . '/style.css');
+
+    // 2. Then generate the image URL dynamically
+    $image_url = get_stylesheet_directory_uri() . '/assets/img/arrow-secondary.svg';
+
+    // 3. Then inject inline CSS
+    $custom_css = "
+        .btn-default::before {
+            background-image: url('{$image_url}');
+        }
+    ";
+    wp_add_inline_style('main-style-handle', $custom_css);
+}
+add_action('wp_enqueue_scripts', 'my_dynamic_css_for_btn_default');
+
+
+// elementor widget function
+
+function register_child_theme_elementor_widgets()
+{
+    require_once get_stylesheet_directory() . '/inc/elementor/dora-button-widget.php';
+    require_once get_stylesheet_directory() . '/inc/elementor/dora-contact-circle.php';
+    require_once get_stylesheet_directory() . '/inc/elementor/dora-service.php';
+
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Button_Widget());
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Contact_circle_Widget());
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Service_Widget());
+}
+add_action('elementor/widgets/register', 'register_child_theme_elementor_widgets');

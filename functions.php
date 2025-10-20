@@ -8,10 +8,19 @@ if (! defined('ABSPATH')) exit;
 function keno_child_enqueue_assets()
 {
 
+
+
     // Load Parent Theme CSS
     wp_enqueue_style(
         'keno-parent-style',
         get_template_directory_uri() . '/style.css'
+    );
+
+    wp_enqueue_style(
+        'keno-child-animate',
+        get_stylesheet_directory_uri() . '/assets/css/animate.css',
+        array(),
+        '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
     );
 
     // Load Child Theme Main CSS
@@ -23,6 +32,7 @@ function keno_child_enqueue_assets()
         '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
     );
 
+
     wp_enqueue_style(
         'keno-child-main-style',
         get_stylesheet_directory_uri() . '/assets/css/main.css',
@@ -32,6 +42,12 @@ function keno_child_enqueue_assets()
     wp_enqueue_style(
         'keno-child-wp-fix',
         get_stylesheet_directory_uri() . '/assets/css/wp-fix.css',
+        array(),
+        '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
+    );
+    wp_enqueue_style(
+        'keno-child-widgets-fix',
+        get_stylesheet_directory_uri() . '/assets/css/widgets-style.css',
         array(),
         '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
     );
@@ -60,6 +76,21 @@ function keno_child_enqueue_assets()
         true
     );
     wp_enqueue_script(
+        'keno-child-scrolltrigger-js',
+        get_stylesheet_directory_uri() . '/assets/js/scrolltrigger.min.js',
+        array('jquery'),
+        '1.0.0',
+        true
+    );
+    wp_enqueue_script(
+        'keno-child-wow-js',
+        get_stylesheet_directory_uri() . '/assets/js/wow.min.js',
+        array('jquery'),
+        '1.0.0',
+        true
+    );
+
+    wp_enqueue_script(
         'keno-child-main-js',
         get_stylesheet_directory_uri() . '/assets/js/main.js',
         array('jquery'),
@@ -81,6 +112,7 @@ foreach ($template_parts as $tparts) {
 }
 $inc_parts = array(
     'inc/customizer.php',
+    'inc/custom-animation.php',
 );
 
 foreach ($inc_parts as $incpart) {
