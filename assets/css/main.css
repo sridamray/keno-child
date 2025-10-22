@@ -1112,7 +1112,7 @@ header.main-header .container-fluid {
   left: 0;
   font-weight: 900;
   font-size: 18px;
-  color: var(--accent-color);
+  color: var(--primary-color);
   transition: all 0.4s ease-in-out;
 }
 

@@ -70,9 +70,11 @@ function register_child_theme_elementor_widgets()
     require_once get_stylesheet_directory() . '/inc/elementor/dora-button-widget.php';
     require_once get_stylesheet_directory() . '/inc/elementor/dora-contact-circle.php';
     require_once get_stylesheet_directory() . '/inc/elementor/dora-service.php';
+    require_once get_stylesheet_directory() . '/inc/elementor/dora-case-study.php';
 
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Button_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Contact_circle_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Service_Widget());
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Case_Study_Widget());
 }
 add_action('elementor/widgets/register', 'register_child_theme_elementor_widgets');
