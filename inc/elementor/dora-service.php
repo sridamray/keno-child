@@ -121,6 +121,22 @@ class Dora_Service_Widget extends Widget_Base
         );
 
 
+        $this->add_control(
+            'dora_service_bg_color',
+            [
+                'label' => esc_html__('BG Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .service-item::before' => 'background-color: {{VALUE}}',
+                    '{{WRAPPER}} .service-item .icon-box' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+
+
+
+
 
         $this->end_controls_section();
     }

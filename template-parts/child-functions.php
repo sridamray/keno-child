@@ -47,11 +47,15 @@ function my_dynamic_css_for_btn_default()
 
     // 2. Then generate the image URL dynamically
     $image_url = get_stylesheet_directory_uri() . '/assets/img/arrow-secondary.svg';
+    $image_url2 = get_stylesheet_directory_uri() . '/assets/img/arrow-accent.svg';
 
     // 3. Then inject inline CSS
     $custom_css = "
         .btn-default::before {
             background-image: url('{$image_url}');
+        }
+        .readmore-btn::before  {
+            background-image: url('{$image_url2}');
         }
     ";
     wp_add_inline_style('main-style-handle', $custom_css);
