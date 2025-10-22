@@ -1008,7 +1008,6 @@ header.main-header .container-fluid {
   position: relative;
   background: var(--secondary-color);
   border-radius: 20px;
-  height: calc(100% - 30px);
   padding: 40px;
   overflow: hidden;
 }
@@ -1037,7 +1036,7 @@ header.main-header .container-fluid {
   position: relative;
   width: 60px;
   height: 60px;
-  background-color: var(--accent-color);
+  background-color: var(--primary-color);
   border-radius: 50%;
   display: flex;
   justify-content: center;
