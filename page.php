@@ -111,7 +111,7 @@ $keno_child_breadcrumb_image = get_theme_mod('keno_child_breadcrumb_image');
 
 
 
-<div class="container keno-page">
+<div class=" keno-page">
     <main id="primary" class="site-main">
 
         <?php
