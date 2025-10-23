@@ -103,10 +103,10 @@ $keno_child_breadcrumb_image = get_theme_mod('keno_child_breadcrumb_image');
     <!-- Page Header End -->
 <?php endif; ?>
 
-<div class="keno-page">
+<div class="keno-page page-single-post">
     <div class="container">
         <div class="row">
-            <div class="col-xl-<?php print esc_attr($blog_column); ?> col-lg-<?php print esc_attr($blog_column); ?>">
+            <div class="col-xl-12 col-lg-12">
                 <main id="primary" class="site-main">
 
                     <?php
@@ -138,6 +138,8 @@ $keno_child_breadcrumb_image = get_theme_mod('keno_child_breadcrumb_image');
         </div>
     </div>
 </div>
+
+
 
 
 <?php

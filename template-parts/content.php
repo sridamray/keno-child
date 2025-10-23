@@ -21,33 +21,18 @@
 
     <article id="post-<?php the_ID(); ?>" <?php post_class('postbox-item'); ?>>
         <?php if (has_post_thumbnail()): ?>
-            <div class="postbox-thumb mb-35">
-                <?php the_post_thumbnail('full', ['class' => 'img-responsive']); ?>
+            <div class="post-image">
+                <figure class="image-anime reveal">
+                    <?php the_post_thumbnail('full', ['class' => 'img-responsive']); ?>
+                </figure>
             </div>
         <?php endif; ?>
-        <div class="postbox-content mb-30">
-            <header class="entry-header">
-                <?php
-
-                if ('post' === get_post_type()) :
-                ?>
-                    <div class="entry-meta">
-                        <?php
-                        keno_posted_on();
-                        keno_posted_by();
-                        ?>
-                    </div><!-- .entry-meta -->
-                <?php endif; ?>
-            </header><!-- .entry-header -->
-            <?php the_content(); ?>
-            <?php
-            wp_link_pages([
-                'before'      => '<div class="page-links">' . esc_html__('Pages:', 'keno'),
-                'after'       => '</div>',
-                'link_before' => '<span class="page-number">',
-                'link_after'  => '</span>',
-            ]);
-            ?>
+        <div class="post-content">
+            <!-- Post Entry Start -->
+            <div class="post-entry">
+                <?php the_content(); ?>
+            </div>
+            <!-- Post Entry End -->
         </div>
 
 
