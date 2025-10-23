@@ -132,9 +132,6 @@ $keno_child_breadcrumb_image = get_theme_mod('keno_child_breadcrumb_image');
 
                 </main><!-- #main -->
             </div>
-            <div class="col-xl-3 col-lg-3">
-                <?php get_sidebar(); ?>
-            </div>
         </div>
     </div>
 </div>
