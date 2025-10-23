@@ -71,10 +71,33 @@ function register_child_theme_elementor_widgets()
     require_once get_stylesheet_directory() . '/inc/elementor/dora-contact-circle.php';
     require_once get_stylesheet_directory() . '/inc/elementor/dora-service.php';
     require_once get_stylesheet_directory() . '/inc/elementor/dora-case-study.php';
+    require_once get_stylesheet_directory() . '/inc/elementor/dora-video-popup.php';
+    require_once get_stylesheet_directory() . '/inc/elementor/dora-contact-form.php';
+    require_once get_stylesheet_directory() . '/inc/elementor/dora-blog.php';
+    require_once get_stylesheet_directory() . '/inc/elementor/dora-testimonial.php';
 
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Button_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Contact_circle_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Service_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Case_Study_Widget());
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Video_Popup_Widget());
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Contact_Form_Widget());
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Blog_Widget());
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Testimonial_Widget());
 }
 add_action('elementor/widgets/register', 'register_child_theme_elementor_widgets');
+
+// Function to get all categories
+function dora_get_all_categories()
+{
+    $categories = get_categories([
+        'hide_empty' => false,
+    ]);
+
+    $category_options = [];
+    foreach ($categories as $category) {
+        $category_options[$category->term_id] = $category->name;
+    }
+
+    return $category_options;
+}

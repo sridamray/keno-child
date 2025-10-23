@@ -31,6 +31,18 @@ function keno_child_enqueue_assets()
         array(),
         '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
     );
+    wp_enqueue_style(
+        'keno-child-swiper',
+        get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css',
+        array(),
+        '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
+    );
+    wp_enqueue_style(
+        'keno-child-magnific-popup',
+        get_stylesheet_directory_uri() . '/assets/css/magnific-popup.css',
+        array(),
+        '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
+    );
 
 
     wp_enqueue_style(
@@ -57,6 +69,20 @@ function keno_child_enqueue_assets()
     wp_enqueue_script(
         'slicknav',
         get_stylesheet_directory_uri() . '/assets/js/jquery.slicknav.js',
+        array('jquery'),
+        '1.0.0',
+        true
+    );
+    wp_enqueue_script(
+        'keno-child-swipper',
+        get_stylesheet_directory_uri() . '/assets/js/swiper-bundle.min.js',
+        array('jquery'),
+        '1.0.0',
+        true
+    );
+    wp_enqueue_script(
+        'magnific-popup',
+        get_stylesheet_directory_uri() . '/assets/js/jquery.magnific-popup.min.js',
         array('jquery'),
         '1.0.0',
         true

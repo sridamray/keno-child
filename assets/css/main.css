@@ -251,13 +251,13 @@ body {
   font-weight: 700;
   line-height: normal;
   text-transform: capitalize;
-  color: var(--accent-color);
+  color: var(--primary-color);
   padding-right: 25px;
   transition: all 0.4s ease-in-out;
 }
 
 .readmore-btn:hover {
-  color: var(--primary-color);
+  color: #4c5761;
 }
 
 .readmore-btn::before {
@@ -2391,7 +2391,7 @@ header.main-header .container-fluid {
 }
 
 .testimonial-slider .swiper-wrapper {
-  cursor: none;
+  cursor: pointer;
 }
 
 .testimonial-header {
@@ -3821,8 +3821,6 @@ header.main-header .container-fluid {
 .case-study-item {
   position: relative;
   border-radius: 20px;
-  height: calc(100% - 30px);
-  margin-bottom: 30px;
   overflow: hidden;
 }
 
@@ -4575,7 +4573,8 @@ header.main-header .container-fluid {
   cursor: none;
 }
 
-.video-gallery-image a::before {
+.video-gallery-image a::before,
+.dora-popup a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -4599,7 +4598,8 @@ header.main-header .container-fluid {
   transform: scale(1);
 }
 
-.video-gallery-image a::after {
+.video-gallery-image a::after,
+.dora-popup a::after {
   content: "\f04b";
   font-family: "FontAwesome";
   position: absolute;
@@ -4608,7 +4608,7 @@ header.main-header .container-fluid {
   right: 0;
   transform: translate(-50%, -50%);
   font-size: 20px;
-  background: var(--accent-color);
+  background: var(--primary-color);
   color: var(--secondary-color);
   border-radius: 50%;
   height: 60px;
@@ -4621,6 +4621,12 @@ header.main-header .container-fluid {
   visibility: hidden;
   transition: all 0.5s ease-in-out;
   z-index: 1;
+}
+
+.dora-popup a::after {
+  visibility: visible;
+  opacity: 1;
+  cursor: pointer;
 }
 
 .video-gallery-image:hover a::after {
