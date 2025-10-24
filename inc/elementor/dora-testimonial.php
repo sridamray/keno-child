@@ -38,6 +38,64 @@ class Dora_Testimonial_Widget extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'dora_testimonial_list',
+            [
+                'label' => esc_html__('Testimonial List', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::REPEATER,
+                'fields' => [
+                    [
+                        'name' => 'testimonial_name',
+                        'label' => esc_html__('Name', 'textdomain'),
+                        'type' => \Elementor\Controls_Manager::TEXT,
+                        'default' => esc_html__('Jenny Wilson', 'textdomain'),
+                        'label_block' => true,
+                    ],
+                    [
+                        'name' => 'testimonial_designation',
+                        'label' => esc_html__('Designation', 'textdomain'),
+                        'type' => \Elementor\Controls_Manager::TEXT,
+                        'default' => esc_html__('Senior Staff', 'textdomain'),
+                        'label_block' => true,
+                    ],
+                    [
+                        'name' => 'testimonial_media',
+                        'label' => esc_html__('Author Image', 'textdomain'),
+                        'type' => \Elementor\Controls_Manager::MEDIA,
+                        'default' => [
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
+                        ],
+                        'label_block' => true,
+                    ],
+                    [
+                        'name' => 'testimonial_description',
+                        'label' => esc_html__('Description', 'textdomain'),
+                        'type' => \Elementor\Controls_Manager::TEXTAREA,
+                        'default' => esc_html__('Description', 'textdomain'),
+                        'label_block' => true,
+                    ],
+                    [
+                        'name' => 'testimonial_icon',
+                        'label' => esc_html__('Icon Image', 'textdomain'),
+                        'type' => \Elementor\Controls_Manager::MEDIA,
+                        'default' => [
+                            'url' => \Elementor\Utils::get_placeholder_image_src(),
+                        ],
+                        'label_block' => true,
+                    ],
+                ],
+                'default' => [
+                    [
+                        'testimonial_name' => esc_html__('Jenny Wilson', 'textdomain'),
+                    ],
+                    [
+                        'testimonial_name' => esc_html__('William Smith', 'textdomain'),
+                    ],
+                ],
+                'title_field' => '{{{ testimonial_name }}}',
+            ]
+        );
+
 
 
 
@@ -62,6 +120,7 @@ class Dora_Testimonial_Widget extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
+        $dora_testimonial_list = $settings['dora_testimonial_list'];
 
 ?>
 
@@ -70,90 +129,37 @@ class Dora_Testimonial_Widget extends Widget_Base
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <!-- Testimonial Slide Start -->
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="testimonial-header">
-                                <div class="testimonial-company-logo">
-                                    <img src="images/company-logo-white-1.svg" alt="">
+                    <?php foreach ($dora_testimonial_list as $single_test_item):
+                        $testimonial_media = $single_test_item['testimonial_media']['url'];
+                        $testimonial_icon = $single_test_item['testimonial_icon']['url'];
+                    ?>
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <div class="testimonial-header">
+                                    <div class="testimonial-company-logo">
+                                        <img src="<?php echo esc_url($testimonial_icon); ?>" alt="">
+                                    </div>
+                                    <div class="testimonial-quote">
+                                        <img src="images/testimonial-quote.svg" alt="">
+                                    </div>
                                 </div>
-                                <div class="testimonial-quote">
-                                    <img src="images/testimonial-quote.svg" alt="">
+                                <div class="testimonial-content">
+                                    <p><?php echo esc_html($single_test_item['testimonial_description']); ?></p>
                                 </div>
-                            </div>
-                            <div class="testimonial-content">
-                                <p>My experience at Logoipsum was nothing short of incredible. From the moment I walked through the doors, I was greeted with warmth and professionalism. The atmosphere was serene and calming, making me feel relaxed even before my treatments began. I booked a full spa day, including a massage, facial, and body wrap.</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <figure class="image-anime">
-                                        <img src="images/author-1.jpg" alt="">
-                                    </figure>
-                                </div>
-                                <div class="author-content">
-                                    <h3>Jenny Wilson</h3>
-                                    <p>Senior Esthetician</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial Slide End -->
-
-                    <!-- Testimonial Slide Start -->
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="testimonial-header">
-                                <div class="testimonial-company-logo">
-                                    <img src="images/company-logo-white-1.svg" alt="">
-                                </div>
-                                <div class="testimonial-quote">
-                                    <img src="images/testimonial-quote.svg" alt="">
-                                </div>
-                            </div>
-                            <div class="testimonial-content">
-                                <p>My experience at Logoipsum was nothing short of incredible. From the moment I walked through the doors, I was greeted with warmth and professionalism. The atmosphere was serene and calming, making me feel relaxed even before my treatments began. I booked a full spa day, including a massage, facial, and body wrap.</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <figure class="image-anime">
-                                        <img src="images/author-2.jpg" alt="">
-                                    </figure>
-                                </div>
-                                <div class="author-content">
-                                    <h3>Juliana Silva</h3>
-                                    <p>Wellness Coach</p>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <figure class="image-anime">
+                                            <img src="<?php echo esc_url($testimonial_media); ?>" alt="">
+                                        </figure>
+                                    </div>
+                                    <div class="author-content">
+                                        <h3><?php echo esc_html($single_test_item['testimonial_name']); ?></h3>
+                                        <p><?php echo esc_html($single_test_item['testimonial_designation']); ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Testimonial Slide End -->
-
-                    <!-- Testimonial Slide Start -->
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="testimonial-header">
-                                <div class="testimonial-company-logo">
-                                    <img src="images/company-logo-white-1.svg" alt="">
-                                </div>
-                                <div class="testimonial-quote">
-                                    <img src="images/testimonial-quote.svg" alt="">
-                                </div>
-                            </div>
-                            <div class="testimonial-content">
-                                <p>My experience at Logoipsum was nothing short of incredible. From the moment I walked through the doors, I was greeted with warmth and professionalism. The atmosphere was serene and calming, making me feel relaxed even before my treatments began. I booked a full spa day, including a massage, facial, and body wrap.</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-image">
-                                    <figure class="image-anime">
-                                        <img src="images/author-3.jpg" alt="">
-                                    </figure>
-                                </div>
-                                <div class="author-content">
-                                    <h3>Nicky Waode</h3>
-                                    <p>Facial Expert</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                     <!-- Testimonial Slide End -->
                 </div>
                 <div class="testimonial-btn">
