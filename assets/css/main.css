@@ -1008,8 +1008,11 @@ header.main-header .container-fluid {
   position: relative;
   background: var(--secondary-color);
   border-radius: 20px;
-  padding: 40px;
   overflow: hidden;
+}
+content-wrap {
+  padding: 40px;
+  padding-top: 0;
 }
 
 .service-item::before {

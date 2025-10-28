@@ -172,20 +172,22 @@ class Dora_Service_Widget extends Widget_Base
             <div class="thumb-image">
                 <img src="<?php echo esc_url($dora_service_icon['url']); ?>" alt="">
             </div>
-            <div class="service-content">
-                <h3><a href="<?php echo esc_url($dora_service_button_url); ?>"><?php echo esc_html($dora_service_title); ?></a></h3>
-                <p><?php echo esc_html($dora_service_description); ?></p>
-            </div>
-            <?php if (!empty($dora_service_list__switcher)): ?>
-                <div class="service-item-list">
-                    <ul>
-                        <li><?php echo esc_html($dora_service_list_item1); ?></li>
-                        <li><?php echo esc_html($dora_service_list_item2); ?></li>
-                    </ul>
+            <div class="content-wrap">
+                <div class="service-content">
+                    <h3><a href="<?php echo esc_url($dora_service_button_url); ?>"><?php echo esc_html($dora_service_title); ?></a></h3>
+                    <p><?php echo esc_html($dora_service_description); ?></p>
                 </div>
-            <?php endif; ?>
-            <div class="service-btn">
-                <a href="<?php echo esc_url($dora_service_button_url); ?>" class="readmore-btn"><?php echo esc_html($dora_service_button_text1); ?></a>
+                <?php if (!empty($dora_service_list__switcher)): ?>
+                    <div class="service-item-list">
+                        <ul>
+                            <li><?php echo esc_html($dora_service_list_item1); ?></li>
+                            <li><?php echo esc_html($dora_service_list_item2); ?></li>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+                <div class="service-btn">
+                    <a href="<?php echo esc_url($dora_service_button_url); ?>" class="readmore-btn"><?php echo esc_html($dora_service_button_text1); ?></a>
+                </div>
             </div>
         </div>
 
