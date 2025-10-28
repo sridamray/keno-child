@@ -77,6 +77,19 @@ class Dora_Service_Widget extends Widget_Base
                 'label_block' => true,
             ]
         );
+
+        $this->add_control(
+            'dora_service_list__switcher',
+            [
+                'label' => esc_html__('List Switcher', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Show', 'textdomain'),
+                'label_off' => esc_html__('Hide', 'textdomain'),
+                'return_value' => 'no',
+                'default' => 'no',
+            ]
+        );
+
         $this->add_control(
             'dora_service_list_item2',
             [
@@ -151,23 +164,26 @@ class Dora_Service_Widget extends Widget_Base
         $dora_service_button_text1 = $settings['dora_service_button_text1'];
         $dora_service_button_url = $settings['dora_service_button_url'];
         $dora_service_icon = $settings['dora_service_icon'];
+        $dora_service_list__switcher = $settings['dora_service_list__switcher'];
 
 ?>
 
         <div class="service-item">
-            <div class="icon-box">
+            <div class="thumb-image">
                 <img src="<?php echo esc_url($dora_service_icon['url']); ?>" alt="">
             </div>
             <div class="service-content">
                 <h3><a href="<?php echo esc_url($dora_service_button_url); ?>"><?php echo esc_html($dora_service_title); ?></a></h3>
                 <p><?php echo esc_html($dora_service_description); ?></p>
             </div>
-            <div class="service-item-list">
-                <ul>
-                    <li><?php echo esc_html($dora_service_list_item1); ?></li>
-                    <li><?php echo esc_html($dora_service_list_item2); ?></li>
-                </ul>
-            </div>
+            <?php if (!empty($dora_service_list__switcher)): ?>
+                <div class="service-item-list">
+                    <ul>
+                        <li><?php echo esc_html($dora_service_list_item1); ?></li>
+                        <li><?php echo esc_html($dora_service_list_item2); ?></li>
+                    </ul>
+                </div>
+            <?php endif; ?>
             <div class="service-btn">
                 <a href="<?php echo esc_url($dora_service_button_url); ?>" class="readmore-btn"><?php echo esc_html($dora_service_button_text1); ?></a>
             </div>

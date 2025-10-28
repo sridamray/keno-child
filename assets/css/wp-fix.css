@@ -1,3 +1,11 @@
 .main-header .slicknav_btn {
   background-color: var(--primary-color);
 }
+
+.thumb-image img {
+  width: 100%;
+  position: relative;
+  z-index: 999;
+  margin-bottom: 30px;
+  border-radius: 20px !important;
+}
