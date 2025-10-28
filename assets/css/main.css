@@ -1010,7 +1010,7 @@ header.main-header .container-fluid {
   border-radius: 20px;
   overflow: hidden;
 }
-content-wrap {
+.content-wrap {
   padding: 40px;
   padding-top: 0;
 }
