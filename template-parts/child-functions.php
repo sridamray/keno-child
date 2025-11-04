@@ -75,6 +75,7 @@ function register_child_theme_elementor_widgets()
     require_once get_stylesheet_directory() . '/inc/elementor/dora-contact-form.php';
     require_once get_stylesheet_directory() . '/inc/elementor/dora-blog.php';
     require_once get_stylesheet_directory() . '/inc/elementor/dora-testimonial.php';
+    require_once get_stylesheet_directory() . '/inc/elementor/header.php';
 
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Button_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Contact_circle_Widget());
@@ -84,6 +85,7 @@ function register_child_theme_elementor_widgets()
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Contact_Form_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Blog_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Testimonial_Widget());
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Header_Widget());
 }
 add_action('elementor/widgets/register', 'register_child_theme_elementor_widgets');
 

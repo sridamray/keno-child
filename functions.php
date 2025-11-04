@@ -63,6 +63,12 @@ function keno_child_enqueue_assets()
         array(),
         '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
     );
+    wp_enqueue_style(
+        'keno-child-custom-spa-fix',
+        get_stylesheet_directory_uri() . '/assets/css/custom-spa.css',
+        array(),
+        '1.0.0' // ← use null or '1.0.0' if filemtime causes issue
+    );
 
     // Load Child Theme JS
 
