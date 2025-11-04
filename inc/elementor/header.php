@@ -77,10 +77,48 @@ class Dora_Header_Widget extends Widget_Base
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'dora_contact_cirlce_style',
+            'dora_header_style_section',
             [
                 'label' => __('Style', 'your-textdomain'),
                 'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'header_bg_color',
+            [
+                'label' => esc_html__('Header Background Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} header.elementor.main-header.bg-section' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'header_logo_width',
+            [
+                'label' => esc_html__('Width', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 1000,
+                        'step' => 5,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'default' => [
+                    'unit' => '%',
+                    'size' => 50,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} a.navbar-brand img' => 'width: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
