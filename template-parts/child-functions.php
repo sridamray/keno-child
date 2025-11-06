@@ -76,6 +76,8 @@ function register_child_theme_elementor_widgets()
     require_once get_stylesheet_directory() . '/inc/elementor/dora-blog.php';
     require_once get_stylesheet_directory() . '/inc/elementor/dora-testimonial.php';
     require_once get_stylesheet_directory() . '/inc/elementor/header.php';
+    require_once get_stylesheet_directory() . '/inc/elementor/dora-portfolio.php';
+    require_once get_stylesheet_directory() . '/inc/elementor/hero-banner-slider.php';
 
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Button_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Contact_circle_Widget());
@@ -86,6 +88,8 @@ function register_child_theme_elementor_widgets()
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Blog_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Testimonial_Widget());
     \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Header_Widget());
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Portfolio_Widget());
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Dora_Hero_Slider_Widget());
 }
 add_action('elementor/widgets/register', 'register_child_theme_elementor_widgets');
 

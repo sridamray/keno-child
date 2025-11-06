@@ -140,7 +140,7 @@ class Dora_Header_Widget extends Widget_Base
         <header class="elementor main-header bg-section">
             <div class="header-sticky">
                 <nav class="navbar navbar-expand-lg">
-                    <div class="container">
+                    <div class="containerfluid">
                         <!-- Logo Start -->
                         <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
                             <img src="<?php echo esc_url($dora_header_logo); ?>" alt="Logo">

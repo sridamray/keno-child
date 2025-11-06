@@ -75,6 +75,33 @@
       },
     });
   }
+  if ($(".hero-slider").length) {
+    const hero_slider = new Swiper(".hero-slider .swiper", {
+      slidesPerView: 1,
+      speed: 1000,
+      spaceBetween: 60,
+      loop: true,
+      autoplay: {
+        delay: 50000000,
+      },
+      pagination: {
+        el: ".hero-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".hero-button-next",
+        prevEl: ".hero-button-prev",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 1,
+        },
+        991: {
+          slidesPerView: 1,
+        },
+      },
+    });
+  }
 
   /* Skill Bar */
   if ($(".skills-progress-bar").length) {
