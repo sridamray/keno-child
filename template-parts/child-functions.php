@@ -107,3 +107,150 @@ function dora_get_all_categories()
 
     return $category_options;
 }
+
+
+function tv_kses($raw)
+{
+    $allowed_tags = array(
+        'a' => array(
+            'class'   => array(),
+            'href'    => array(),
+            'rel'     => array(),
+            'title'   => array(),
+            'target'  => array(),
+        ),
+        'abbr' => array(
+            'title' => array(),
+        ),
+        'b' => array(),
+        'blockquote' => array(
+            'cite' => array(),
+        ),
+        'cite' => array(
+            'title' => array(),
+        ),
+        'code' => array(),
+        'del' => array(
+            'datetime' => array(),
+            'title'    => array(),
+        ),
+        'dd' => array(),
+        'div' => array(
+            'class' => array(),
+            'title' => array(),
+            'style' => array(),
+        ),
+        'dl' => array(),
+        'dt' => array(),
+        'em' => array(),
+        'h1' => array(),
+        'h2' => array(),
+        'h3' => array(),
+        'h4' => array(),
+        'h5' => array(),
+        'h6' => array(),
+        'i' => array(
+            'class' => array(),
+        ),
+        'img' => array(
+            'alt'    => array(),
+            'class'  => array(),
+            'height' => array(),
+            'src'    => array(),
+            'width'  => array(),
+        ),
+        'li' => array(
+            'class' => array(),
+        ),
+        'ol' => array(
+            'class' => array(),
+        ),
+        'p' => array(
+            'class' => array(),
+        ),
+        'q' => array(
+            'cite'  => array(),
+            'title' => array(),
+        ),
+        'span' => array(
+            'class' => array(),
+            'title' => array(),
+            'style' => array(),
+        ),
+        'iframe' => array(
+            'width'        => array(),
+            'height'       => array(),
+            'scrolling'    => array(),
+            'frameborder'  => array(),
+            'allow'        => array(),
+            'src'          => array(),
+        ),
+        'strike' => array(),
+        'br' => array(),
+        'strong' => array(),
+        'ul' => array(
+            'class' => array(),
+        ),
+
+        // SVG support
+        'svg' => array(
+            'xmlns'           => array(),
+            'xmlns:xlink'     => array(),
+            'width'           => array(),
+            'height'          => array(),
+            'viewBox'         => array(),
+            'fill'            => array(),
+            'stroke'          => array(),
+            'stroke-width'    => array(),
+            'stroke-linecap'  => array(),
+            'stroke-linejoin' => array(),
+        ),
+        'path' => array(
+            'd'               => array(),
+            'fill'            => array(),
+            'stroke'          => array(),
+            'stroke-width'    => array(),
+            'stroke-linecap'  => array(),
+            'stroke-linejoin' => array(),
+        ),
+        'circle' => array(
+            'cx'              => array(),
+            'cy'              => array(),
+            'r'               => array(),
+            'fill'            => array(),
+            'stroke'          => array(),
+            'stroke-width'    => array(),
+        ),
+        'rect' => array(
+            'x'               => array(),
+            'y'               => array(),
+            'width'           => array(),
+            'height'          => array(),
+            'rx'              => array(),
+            'ry'              => array(),
+            'fill'            => array(),
+            'stroke'          => array(),
+            'stroke-width'    => array(),
+        ),
+        'line' => array(
+            'x1'              => array(),
+            'y1'              => array(),
+            'x2'              => array(),
+            'y2'              => array(),
+            'stroke'          => array(),
+            'stroke-width'    => array(),
+        ),
+        'polygon' => array(
+            'points'          => array(),
+            'fill'            => array(),
+            'stroke'          => array(),
+            'stroke-width'    => array(),
+        ),
+    );
+
+    if (function_exists('wp_kses')) {
+        return wp_kses($raw, $allowed_tags);
+    }
+
+    return $raw; // Fallback
+}

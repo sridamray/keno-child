@@ -483,7 +483,7 @@ class Dora_Hero_Slider_Widget extends Widget_Base
                             <div class="hero-slider-item" style="background-image: url(<?php echo esc_url($hero_slider_bg_img); ?>);">
                                 <div class="hero-slider-content">
                                     <h1 class="hero-slider-title"><?php echo esc_html($single_hero_slider_list['hero_title']); ?></h1>
-                                    <p class="hero-slider-description"><?php echo esc_html($single_hero_slider_list['hero__description']); ?></p>
+                                    <p class="hero-slider-description"><?php echo tv_kses($single_hero_slider_list['hero__description']); ?></p>
                                     <div class="hero-slider-btns">
                                         <a href="<?php echo esc_url($single_hero_slider_list['hero_btn_url1']); ?>" class="btn btn-primary"><?php echo esc_html($single_hero_slider_list['hero_btn_text1']); ?></a>
                                         <a href="<?php echo esc_url($single_hero_slider_list['hero_btn_url2']); ?>" class="btn btn-secondary"><?php echo esc_html($single_hero_slider_list['hero_btn_text2']); ?></a>
