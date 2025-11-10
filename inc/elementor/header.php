@@ -122,6 +122,71 @@ class Dora_Header_Widget extends Widget_Base
             ]
         );
 
+        $this->add_control(
+            'dora_header_menu_style_heading',
+            [
+                'label' => esc_html__('Menu Style', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->start_controls_tabs(
+            'dora_header_menu_style_tabs'
+        );
+
+        $this->start_controls_tab(
+            'dora_header_menu_style_normal_tab',
+            [
+                'label' => esc_html__('Normal', 'textdomain'),
+            ]
+        );
+
+        $this->add_control(
+            'dora_header_menu_li_color',
+            [
+                'label' => esc_html__('Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .main-menu ul li a' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'dora_header_menu_style_hover_tab',
+            [
+                'label' => esc_html__('Normal', 'textdomain'),
+            ]
+        );
+
+
+        $this->add_control(
+            'dora_header_menu__hover_li_color',
+            [
+                'label' => esc_html__('Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .main-menu ul li a:hover' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'dora_header_menu_typography',
+                'selector' => '{{WRAPPER}} .main-menu ul li a',
+            ]
+        );
+
+
 
 
         $this->end_controls_section();
