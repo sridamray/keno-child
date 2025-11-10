@@ -118,12 +118,346 @@ class Dora_Hero_Slider_Widget extends Widget_Base
         $this->end_controls_section();
 
         $this->start_controls_section(
-            'dora_contact_cirlce_style',
+            'dora_hero_banner_style',
             [
                 'label' => __('Style', 'your-textdomain'),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
+
+        $this->add_control(
+            'dora_hero_banner_title_heading',
+            [
+                'label' => esc_html__('Title', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'dora_hero_banner_title_color',
+            [
+                'label' => esc_html__('Title Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-content h1' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'dora_hero_banner_title_typography',
+                'selector' => '{{WRAPPER}} .hero-slider-content h1',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'dora_hero_banner_title_margin',
+            [
+                'label' => __('Title Margin', 'your-textdomain'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-content h1' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_responsive_control(
+            'dora_hero_banner_title_padding',
+            [
+                'label' => __('Title Padding', 'your-textdomain'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-content h1' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dora_hero_banner_description_heading',
+            [
+                'label' => esc_html__('Description', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'dora_hero_banner_description_color',
+            [
+                'label' => esc_html__('Description Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-content p' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'dora_hero_banner_description_typography',
+                'selector' => '{{WRAPPER}} .hero-slider-content p',
+            ]
+        );
+
+
+        $this->add_responsive_control(
+            'dora_hero_banner_description_margin',
+            [
+                'label' => __('Description Margin', 'your-textdomain'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-content p' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_responsive_control(
+            'dora_hero_banner_description_padding',
+            [
+                'label' => __('Description Padding', 'your-textdomain'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-content p' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+
+        $this->add_control(
+            'dora_hero_banner_button_heading',
+            [
+                'label' => esc_html__('Button', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->start_controls_tabs(
+            'dora_hero_banner_button_style_tabs'
+        );
+
+        // normal
+
+        $this->start_controls_tab(
+            'dora_hero_banner_button_normal_tab',
+            [
+                'label' => esc_html__('Normal', 'textdomain'),
+            ]
+        );
+
+        $this->add_control(
+            'dora_hero_banner_button_color',
+            [
+                'label' => esc_html__('BTN Text Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+        $this->add_control(
+            'dora_hero_banner_button_bgcolor',
+            [
+                'label' => esc_html__('BTN BG Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dora_hero_banner_button_bordercolor',
+            [
+                'label' => esc_html__('Border Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn' => 'border-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+
+
+
+        $this->add_control(
+            'dora_hero_banner_button2_color',
+            [
+                'label' => esc_html__('BTN 2 Text Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn.btn-secondary' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+        $this->add_control(
+            'dora_hero_banner_button2_bgcolor',
+            [
+                'label' => esc_html__('BTN 2 BG Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn.btn-secondary' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dora_hero_banner_button2_bordercolor',
+            [
+                'label' => esc_html__('Border Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn.btn-secondary' => 'border-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+
+
+        $this->end_controls_tab();
+
+        // hover
+
+        $this->start_controls_tab(
+            'dora_hero_banner_button_hover_tab',
+            [
+                'label' => esc_html__('Hover', 'textdomain'),
+            ]
+        );
+
+        $this->add_control(
+            'dora_hero_banner_button_hover_color',
+            [
+                'label' => esc_html__('BTN Text Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn:hover' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+        $this->add_control(
+            'dora_hero_banner_button_hover_bgcolor',
+            [
+                'label' => esc_html__('BTN BG Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn:hover' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dora_hero_banner_button_hover_bordercolor',
+            [
+                'label' => esc_html__('Border Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn:hover' => 'border-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+
+
+        $this->add_control(
+            'dora_hero_banner_button2_hover_color',
+            [
+                'label' => esc_html__('BTN 2 Text Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn.btn-secondary:hover' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+        $this->add_control(
+            'dora_hero_banner_button2_hover_bgcolor',
+            [
+                'label' => esc_html__('BTN 2 BG Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn.btn-secondary:hover' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'dora_hero_banner_button2_hover_bordercolor',
+            [
+                'label' => esc_html__('Border Color', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn.btn-secondary:hover' => 'border-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
+
+
+
+
+        $this->add_responsive_control(
+            'dora_hero_banner_btn_margin',
+            [
+                'label' => __('BTN Margin', 'your-textdomain'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_responsive_control(
+            'dora_hero_banner_btn_padding',
+            [
+                'label' => __('BTN Padding', 'your-textdomain'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'dora_hero_banner_btn_typography',
+                'selector' => '{{WRAPPER}} .hero-slider-btns a.btn',
+            ]
+        );
+
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'dora_hero_banner_btn_border',
+                'selector' => '{{WRAPPER}} .hero-slider-btns a.btn',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'dora_hero_banner_btn_border_radius',
+            [
+                'label' => __('Border Radius', 'your-textdomain'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .hero-slider-btns a.btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
 
 
 
